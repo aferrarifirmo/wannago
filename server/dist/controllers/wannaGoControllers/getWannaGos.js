@@ -25,7 +25,7 @@ const getWannaGos = (ctx) => __awaiter(void 0, void 0, void 0, function* () {
     catch (e) {
         ctx.status = 500;
         // tslint:disable-next-line:no-console
-        console.log(`Error in getWannaGos function from controllers: ${e}`);
+        // console.log(`Error in getWannaGos function from controllers: ${e}`);
     }
 });
 const getAllWannaGosOfUser = (ctx) => __awaiter(void 0, void 0, void 0, function* () {
@@ -35,12 +35,12 @@ const getAllWannaGosOfUser = (ctx) => __awaiter(void 0, void 0, void 0, function
         ctx.status = 201;
         ctx.body = wannaGos;
         // tslint:disable-next-line:no-console
-        console.log(`The owner: ${ctx.params.owner} owns these wannaGos: ${wannaGos}`);
+        // console.log(`The owner: ${ctx.params.owner} owns these wannaGos: ${wannaGos}`);
     }
     catch (e) {
         ctx.status = 500;
         // tslint:disable-next-line:no-console
-        console.log(`Error in getWannaGos function from controllers: ${e}`);
+        // console.log(`Error in getWannaGos function from controllers: ${e}`);
     }
 });
 const getWannaGoByParams = (ctx) => __awaiter(void 0, void 0, void 0, function* () {
@@ -51,29 +51,29 @@ const getWannaGoByParams = (ctx) => __awaiter(void 0, void 0, void 0, function* 
             when: `${ctx.params.when}`,
         });
         // tslint:disable-next-line:no-console
-        console.log(`This wannaGo was retrieved ${wannaGo}`);
+        // console.log(`This wannaGo was retrieved ${wannaGo}`);
         ctx.body = wannaGo;
     }
     catch (e) {
         ctx.status = 500;
         // tslint:disable-next-line:no-console
-        console.log(`Error in getawannaGo function from controllers: ${e}`);
+        // console.log(`Error in getawannaGo function from controllers: ${e}`);
     }
 });
 const getWannaGoById = (ctx) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         ctx.status = 201;
         // tslint:disable-next-line:no-console
-        console.log(ctx.params.id);
+        // console.log(ctx.params.id);
         const wannaGo = yield wannaGoModel_1.default.findById(ctx.params.id);
         // tslint:disable-next-line:no-console
-        console.log(`This wannaGo was retrieved ${wannaGo}`);
+        // console.log(`This wannaGo was retrieved ${wannaGo}`);
         ctx.body = wannaGo;
     }
     catch (e) {
         ctx.status = 500;
         // tslint:disable-next-line:no-console
-        console.log(`Error in getawannaGo function from controllers: ${e}`);
+        // console.log(`Error in getawannaGo function from controllers: ${e}`);
     }
 });
 exports.default = {

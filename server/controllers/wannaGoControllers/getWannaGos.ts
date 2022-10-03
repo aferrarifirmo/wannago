@@ -12,7 +12,7 @@ const getWannaGos = async (ctx: Context) => {
   } catch (e) {
     ctx.status = 500;
     // tslint:disable-next-line:no-console
-    console.log(`Error in getWannaGos function from controllers: ${e}`);
+    // console.log(`Error in getWannaGos function from controllers: ${e}`);
   }
 };
 
@@ -23,11 +23,11 @@ const getAllWannaGosOfUser = async (ctx: Context) => {
     ctx.status = 201;
     ctx.body = wannaGos;
     // tslint:disable-next-line:no-console
-    console.log(`The owner: ${ctx.params.owner} owns these wannaGos: ${wannaGos}`);
+    // console.log(`The owner: ${ctx.params.owner} owns these wannaGos: ${wannaGos}`);
   } catch (e) {
     ctx.status = 500;
     // tslint:disable-next-line:no-console
-    console.log(`Error in getWannaGos function from controllers: ${e}`);
+    // console.log(`Error in getWannaGos function from controllers: ${e}`);
   }
 };
 
@@ -39,12 +39,12 @@ const getWannaGoByParams = async (ctx: Context) => {
       when: `${ctx.params.when}`,
     });
     // tslint:disable-next-line:no-console
-    console.log(`This wannaGo was retrieved ${wannaGo}`);
+    // console.log(`This wannaGo was retrieved ${wannaGo}`);
     ctx.body = wannaGo;
   } catch (e) {
     ctx.status = 500;
     // tslint:disable-next-line:no-console
-    console.log(`Error in getawannaGo function from controllers: ${e}`);
+    // console.log(`Error in getawannaGo function from controllers: ${e}`);
   }
 };
 
@@ -52,15 +52,15 @@ const getWannaGoById = async (ctx: Context) => {
   try {
     ctx.status = 201;
     // tslint:disable-next-line:no-console
-    console.log(ctx.params.id);
+    // console.log(ctx.params.id);
     const wannaGo = await WannaGo.findById(ctx.params.id);
     // tslint:disable-next-line:no-console
-    console.log(`This wannaGo was retrieved ${wannaGo}`);
+    // console.log(`This wannaGo was retrieved ${wannaGo}`);
     ctx.body = wannaGo;
   } catch (e) {
     ctx.status = 500;
     // tslint:disable-next-line:no-console
-    console.log(`Error in getawannaGo function from controllers: ${e}`);
+    // console.log(`Error in getawannaGo function from controllers: ${e}`);
   }
 };
 

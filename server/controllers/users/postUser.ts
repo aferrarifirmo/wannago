@@ -3,7 +3,7 @@ import User from '../../models/userModel';
 import { Context } from 'koa';
 
 
-const postAuser = async (ctx: Context) => {
+const postAuser = async (ctx: Context)  => {
   try {
     const user = ctx.request.body;
     const storedUser = await User.create({
