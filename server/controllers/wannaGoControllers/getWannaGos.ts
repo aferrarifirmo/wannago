@@ -8,7 +8,7 @@ const getWannaGos = async (ctx: Context) => {
     ctx.status = 201;
     ctx.body = wannaGos;
     // tslint:disable-next-line:no-console
-    console.log(`These wannaGos were retrieved: ${wannaGos}`);
+    // console.log(`These wannaGos were retrieved: ${wannaGos}`);
   } catch (e) {
     ctx.status = 500;
     // tslint:disable-next-line:no-console
