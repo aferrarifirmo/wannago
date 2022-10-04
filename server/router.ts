@@ -14,6 +14,10 @@ import deleteWannaGo  from './controllers/wannaGoControllers/deleteWannaGos';
 import postAuser from './controllers/users/postUser';
 import getUserById from './controllers/users/getUser';
 
+import { Context } from 'koa';
+router.get('/', (ctx: Context) => {
+    ctx.status=200;
+});
 
 // GETS
 router.get('/wannagos', GetWannaGoController.getWannaGos);

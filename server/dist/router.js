@@ -14,6 +14,9 @@ const deleteWannaGos_1 = __importDefault(require("./controllers/wannaGoControlle
 // User Controller Functions
 const postUser_1 = __importDefault(require("./controllers/users/postUser"));
 const getUser_1 = __importDefault(require("./controllers/users/getUser"));
+router.get('/', (ctx) => {
+    ctx.status = 200;
+});
 // GETS
 router.get('/wannagos', getWannaGos_1.default.getWannaGos);
 router.get('/wannago/:id', getWannaGos_1.default.getWannaGoById);

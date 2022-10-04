@@ -17,4 +17,6 @@ app.use(router_1.default.routes());
 app.listen(config_1.default.PORT, () => 
 // tslint:disable-next-line:no-console
 console.log(`Server running on ${config_1.default.URL}${config_1.default.PORT}`));
+// module.exports = app.listen(3000);
+module.exports = app;
 //# sourceMappingURL=index.js.map
