@@ -117,10 +117,11 @@ const UserDashboard = ({
       <div className='holdWannaGos'>
         {allUserWGs &&
           allUserWGs
-            .sort((a: any, b: any) => {return Number(new Date(a.date)) - Number(new Date(b.date))})
+            .sort((a: any, b: any) => {return Number(new Date(a.when)) - Number(new Date(b.when))})
             .map((wannaGo: any) => {
               return (
                 <a
+                  key={wannaGo._id}
                   target='blank'
                   href={`${URL}${CLIENT_PORT}/user/wannago/stats/id=${wannaGo._id}`}
                   style={{ color: 'inherit', textDecoration: 'inherit' }}

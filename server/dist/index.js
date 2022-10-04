@@ -9,6 +9,7 @@ const koa_morgan_1 = __importDefault(require("koa-morgan"));
 const cors_1 = __importDefault(require("@koa/cors"));
 const router_1 = __importDefault(require("./router"));
 const config_1 = __importDefault(require("./config"));
+// import { isModuleNamespaceObject } from "util/types";
 const app = new koa_1.default();
 app.use((0, cors_1.default)());
 app.use((0, koa_bodyparser_1.default)());

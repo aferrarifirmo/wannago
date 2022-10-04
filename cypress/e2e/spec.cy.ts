@@ -13,7 +13,7 @@ const dashboardItems = [
 
 describe('Visit WannaGo page', () => {
   it('Opens WannaGo page', () => {
-    cy.visit('http://localhost:3001/')
+    cy.visit('http://localhost:3000/')
   })
 })
 
@@ -136,7 +136,7 @@ describe('Log in', () => {
 
 describe('User dashboard', () => {
   it('User dashboard contents', () => {
-    cy.visit('http://localhost:3001/user/dashboard')
+    cy.visit('http://localhost:3000/user/dashboard')
     cy.get('[href="/"]')
     cy.get('[href="/user/update-profile"]')
     cy.get('[href="/user/dashboard"]')
@@ -171,6 +171,6 @@ describe('Update profile', () => {
       .get('#password-confirm').click()
     
     cy.get('#logout-button').click()
-    cy.url().should('eq', 'http://localhost:3001/')
+    cy.url().should('eq', 'http://localhost:3000/')
   })
 })

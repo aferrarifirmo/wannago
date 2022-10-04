@@ -27,7 +27,11 @@ export const AuthProvider = ({ children }: Props) => {
   }, []);
 
   const signUp = async (email: string, password: string) => {
-    return auth.createUserWithEmailAndPassword(email, password);
+    try{
+      return auth.createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.log('email already in use')
+    }
   };
 
   const logIn = (email: string, password: string) => {

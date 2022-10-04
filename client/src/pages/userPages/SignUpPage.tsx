@@ -6,7 +6,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import '../../css/Authentication.css';
 
 export default function SignUp() {
-  
+
   const emailRef: any = useRef();
   const passwordRef: any = useRef();
   const passwordConfirmRef: any = useRef();
@@ -16,16 +16,26 @@ export default function SignUp() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // const allUsers = async () => {
+  //   try {
+  //     const res = await getAll
+  //   }
+  // }
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       setError('Passwords do not match');
       return;
     }
+    if (passwordRef.current.value.length < 6) {
+      setError('Passord should have 6 or more characters');
+      return;
+    }
 
-    try {
       setError('');
       setLoading(true);
+      setError('Email already in use');
       const newUser = await signUp(emailRef.current.value, passwordRef.current.value);
       const user = {
         name: nameRef.current.value,
@@ -33,11 +43,10 @@ export default function SignUp() {
         _id: newUser.user.uid,
       };
       console.log('this is user', user)
+      setError("Sorry. Something went wrong on our side and we weren't able to create your account.");
       await postUser(user);
       navigate('/user/dashboard');
-    } catch {
-      setError('Failed to create an account');
-    }
+
     setLoading(false);
   };
 
