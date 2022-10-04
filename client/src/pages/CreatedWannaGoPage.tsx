@@ -43,7 +43,7 @@ const PlanCreated = () => {
       <div className='justCreatedWannaGoSedondPart'>
         <h4>Ask if they wannaGo!</h4>
         <h4>Share this link:</h4>
-        <div>
+        <div aria-label='guest link container'>
           <a
             className='guestLink'
             target='blank'
@@ -66,7 +66,7 @@ const PlanCreated = () => {
               <Link to='/user/login'> log in </Link> or
               <Link to='/user/signup'> sign up </Link> please.
             </h6> 
-            <div className='btns-container'>
+            <div className='btns-container' aria-label='buttons container'>
               <button
                 className='button cancel'
                 onClick={() => navigate('/user/signup')}

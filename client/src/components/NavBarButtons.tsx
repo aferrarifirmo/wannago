@@ -31,6 +31,7 @@ export const LogoutButton = ({ logOut }: Props) => {
   };
   return (
     <img
+      id='logout-button'
       title='Log Out'
       className='icons logout'
       src={logoutSoft}
@@ -79,6 +80,7 @@ export const LandingButton = () => {
       to={'/'}
     >
       <img
+        id='landing-page'
         title='Go to Landing Page'
         className='iconsLogo'
         src={logo}
