@@ -85,7 +85,7 @@ const GuestLink = () => {
       </h2>
       <WannaGoCard wannaGo={wannaGo}></WannaGoCard>
       {!option ? (
-        <div className='buttons'>
+        <div className='buttons' aria-label='Yes, No or Maybe buttons container'>
           <NoButton handleClick={handleClick}></NoButton>
           <YesButton handleClick={handleClick}></YesButton>
           <MaybeButton handleClick={handleClick}></MaybeButton>

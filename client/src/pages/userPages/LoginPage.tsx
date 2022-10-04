@@ -38,6 +38,7 @@ export default function Login() {
             <Form.Group id='email'>
               <Form.Label>Email</Form.Label>
               <Form.Control
+                id='email'
                 type='email'
                 ref={emailRef}
                 required
@@ -46,6 +47,7 @@ export default function Login() {
             <Form.Group id='password'>
               <Form.Label>Password</Form.Label>
               <Form.Control
+                id='password'
                 type='password'
                 ref={passwordRef}
                 required
@@ -53,7 +55,7 @@ export default function Login() {
             </Form.Group>
             <Button
               type='submit'
-              // class=''
+              id='login-button'
               className='signup-button'
               disabled={loading}
             >

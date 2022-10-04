@@ -40,14 +40,16 @@ const YesOption = ({ id, goingCounter, ownerName }: Props) => {
           </h4>
           <div className='form'>
             <form onSubmit={handleSubmit}>
-              <label>Name</label>
+              <label htmlFor='name'>Name</label>
               <input
+                id='name'
                 type='text'
                 name='name'
                 required
               ></input>
-              <label>Email</label>
+              <label htmlFor='email'>Email</label>
               <input
+                id='email'
                 type='email'
                 name='email'
                 required

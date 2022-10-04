@@ -38,13 +38,16 @@ const MaybeOption = ({ id, suggestionBoxCounter, ownerName } : Props) => {
       ) : (
         <form onSubmit={handleSubmit}>
           <div className='maybeTextArea'>
+            <label htmlFor='suggestions-text-area'></label>
             <textarea
+              id='suggestions-text-area'
               name='suggestion'
               placeholder='write your suggestion here'
               autoFocus
               required
             ></textarea>
             <button
+              title='Send'
               className='button maybe'
               type='submit'
             >

@@ -74,47 +74,46 @@ const UserDashboard = ({
 
   return (
     <>
-      <h2 className='welcome'>Welcome {user.name}!</h2>
+      <h4 className='welcome'>Welcome {user.name}!</h4>
       <div className='testingGrid'>
         <div className='insideGrid'>
-          <h4>Success Ratio</h4>
+          <h3>Success Ratio</h3>
           <div>{totalSuccessRatio}%</div>
         </div>
         <div className='insideGrid'>
-          <h4>Engagement</h4>
+          <h3>Engagement</h3>
           <div>{totalEngagement}%</div>
         </div>
         <div className='insideGrid'>
-          <h4>Number of times your links were opened</h4>
+          <h3>Number of times your links were opened</h3>
           <div>{numOfTimesLinksOpened}</div>
         </div>
         <div className='insideGrid'>
-          <h4>Total of active WannaGos</h4>
+          <h3>Total of active WannaGos</h3>
           <div>{numOfActiveWannaGos}</div>
         </div>
         <div className='insideGrid'>
-          <h4>Total of people going to your WannaGos</h4>
+          <h3>Total of people going to your WannaGos</h3>
           <div>{totalPplGoing}</div>
         </div>
         <div className='insideGrid'>
-          <h4>People that can't go to your WannaGos</h4>
+          <h3>People that can't go to your WannaGos</h3>
           <div>{totalRejections}</div>
         </div>
         <div className='insideGrid'>
-          <h4>Total of people that have suggestions</h4>
+          <h3>Total of people that have suggestions</h3>
           <div>{totalSuggestions}</div>
         </div>
         <div className='insideGrid'>
-          <h4>Total of expired WannaGos</h4>
+          <h3>Total of expired WannaGos</h3>
           <div>{numOfOlderWannaGos}</div>
         </div>
-
         <div className='insideGrid'>
-          <h4>Total of people going to your WannaGos</h4>
+          <h3>Total of people going to your WannaGos</h3>
           <div>{totalWannaGos}</div>
         </div>
       </div>
-      <h2 className='justCreatedWannaGo'>These are your wannagos:</h2>
+      <h4 className='justCreatedWannaGo'>These are your wannagos:</h4>
       <div className='holdWannaGos'>
         {allUserWGs &&
           allUserWGs

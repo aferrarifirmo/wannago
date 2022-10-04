@@ -82,27 +82,27 @@ const WannaGoStats = () => {
       <h4 className='justCreatedWannaGo'>See how well the WannaGo is doing</h4>
       <br />
       <div className='testingGrid'>
-        <div className='insideGrid'>
+        <div className='insideGrid' aria-label='Number of times the link was opened'>
           <h4>Number of times the link was opened</h4>
           {wannaGo.openedTimes}
         </div>
-        <div className='insideGrid'>
+        <div className='insideGrid' aria-label='How many people are going'>
           <h4>People Going</h4>
           {wannaGo.goingCounter}
         </div>
-        <div className='insideGrid'>
+        <div className='insideGrid' aria-label='How many people are not going'>
           <h4>People that can't go</h4>
           {wannaGo.rejectCounter}
         </div>
-        <div className='insideGrid'>
+        <div className='insideGrid' aria-label='Number of suggestions made'>
           <h4>Number of suggestions made</h4>
           {wannaGo.suggestionBoxCounter}
         </div>
-        <div className='insideGrid'>
+        <div className='insideGrid'  aria-label='Engagement'>
           <h4>Engagement</h4>
           {getEngagementOfWannaGo(wannaGo)}%
         </div>
-        <div className='insideGrid'>
+        <div className='insideGrid' aria-label='Success ratio'>
           <h4>Success Ratio</h4>
           {Math.floor(getSuccessRatioOfWannaGo(wannaGo))}%
         </div>
