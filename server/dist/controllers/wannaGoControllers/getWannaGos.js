@@ -20,7 +20,7 @@ const getWannaGos = (ctx) => __awaiter(void 0, void 0, void 0, function* () {
         ctx.status = 201;
         ctx.body = wannaGos;
         // tslint:disable-next-line:no-console
-        console.log(`These wannaGos were retrieved: ${wannaGos}`);
+        // console.log(`These wannaGos were retrieved: ${wannaGos}`);
     }
     catch (e) {
         ctx.status = 500;
