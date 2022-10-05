@@ -1,5 +1,6 @@
 import { putRejectCounter } from '../../utils/apis/wannagoApiServices/putWannaGos';
 
+
 type Props = { id: null | string, rejectCounter: number, ownerName: string }
 
 const NoOption = ({ id, rejectCounter, ownerName }: Props) => {

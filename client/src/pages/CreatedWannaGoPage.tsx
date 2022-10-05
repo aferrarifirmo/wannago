@@ -9,6 +9,24 @@ import '../css/WannaGoCard.css';
 import { putOwnerToWannaGo } from '../utils/apis/userApiServices/userApi';
 import { User } from '@firebase/auth-types';
 
+
+// SOCIAL SHARE BUTTONS
+import { EmailShareButton, 
+         FacebookMessengerShareButton,
+         TelegramShareButton,
+         WhatsappShareButton
+
+        } from 'react-share';
+
+// SOCIAL SHARE ICONS
+
+import { EmailIcon, 
+         FacebookMessengerIcon,
+         TelegramIcon,
+         WhatsappIcon
+
+        } from 'react-share';
+
 const PlanCreated = () => {
   const params = new URLSearchParams(window.location.pathname);
   const id = params.get('/wannago/id');
@@ -36,6 +54,11 @@ const PlanCreated = () => {
     navigator.clipboard.writeText(guestLink);
     setCopied('Copied');
   };
+
+  
+  const share : string = "https://google.com"
+
+
   return (
     <>
       <h1 className='justCreatedWannaGo'>What a Plan!</h1>
@@ -58,6 +81,39 @@ const PlanCreated = () => {
           >
             {copied}
           </button>
+
+
+          <div className='social-share-container'>
+            <EmailShareButton
+              url={share}
+              className="Demo__some-network__share-button"
+            >
+              <EmailIcon size={32} round />
+            </EmailShareButton>
+
+            <FacebookMessengerShareButton
+              appId=''
+              url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
+              className="Demo__some-network__share-button"
+            >
+              <FacebookMessengerIcon size={32} round />
+            </FacebookMessengerShareButton>
+
+            <TelegramShareButton
+              url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
+              className="Demo__some-network__share-button"
+            >
+              <TelegramIcon size={32} round />
+            </TelegramShareButton>
+
+            <WhatsappShareButton
+              url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
+              className="Demo__some-network__share-button"
+            >
+              <WhatsappIcon size={32} round />
+            </WhatsappShareButton>
+          </div>
+
         </div>
         {!currentUser? 
           <>
