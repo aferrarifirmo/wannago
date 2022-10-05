@@ -3,11 +3,11 @@ import { useAuth } from '../../contexts/AuthContext';
 import { putOwnerToWannaGo, getUserById } from '../../utils/apis/userApiServices/userApi';
 import { getAllWannaGosOfUser } from '../../utils/apis/wannagoApiServices/getWannaGos';
 import {
-  getSuccessRatioOfWannaGo,
+  // getSuccessRatioOfWannaGo,
   getNumOfActiveWannaGos,
   getNumOfOlderWannaGos,
   // aggregateSuccessRatio,
-  aggregateEngagement,
+  // aggregateEngagement,
   aggregatePplGoing,
   aggregateRejections,
   aggregateSuggestions,
@@ -16,6 +16,9 @@ import {
 import { CLIENT_PORT, URL } from '../../utils/config';
 import WannaGoCard from '../../components/WannaGoCard';
 import '../../css/MaybeOption.css';
+import DonutChartTotals from '../../components/charts/DonutChartTotals';
+import RadialChartTotals from '../../components/charts/RadialChartTotals';
+import TotalWannaGos from '../../components/charts/TotalWannaGos';
 
 type Props = { user: any, setUser: any, wannaGo: any, justCreatedWG: any, setJustCreatedWG: any }
 
@@ -63,63 +66,36 @@ const UserDashboard = ({
       return Math.floor((aggregatePplGoing(allUserWannaGos)/aggregateOpenedTimes(allUserWannaGos))*100)
     }
 
+    const totalEng = () => {
+      return Math.floor(((aggregatePplGoing(allUserWannaGos)+aggregateRejections(allUserWannaGos)+aggregateSuggestions(allUserWannaGos))/aggregateOpenedTimes(allUserWannaGos))*100)
+    }
+
     const allUserWannaGos: [] = await getAllWannaGosOfUser(userToRender._id);
     setAllUserWGs(allUserWannaGos);
-    setTotalWannaGos(allUserWannaGos.length + 1);
+    console.log(allUserWannaGos.length);
+    setTotalWannaGos(allUserWannaGos.length); // ok
     setTotalPplGoing(aggregatePplGoing(allUserWannaGos));
     setTotalRejections(aggregateRejections(allUserWannaGos));
     setTotalSuggestions(aggregateSuggestions(allUserWannaGos));
     setNumOfActiveWannaGos(getNumOfActiveWannaGos(allUserWannaGos));
     setNumOfOlderWannaGos(getNumOfOlderWannaGos(allUserWannaGos));
     setNumOfTimesLinksOpened(aggregateOpenedTimes(allUserWannaGos));
-    setTotalEngagement(aggregateEngagement(allUserWannaGos)-100);
+    // setTotalEngagement(aggregateEngagement(allUserWannaGos)-100);
     // setTotalSuccessRatio(Math.floor(aggregateSuccessRatio(allUserWannaGos)));
-    setTotalSuccessRatio(totalSuccess());
+    setTotalSuccessRatio(totalSuccess()); //ok
+    setTotalEngagement(totalEng()); // ok
     console.log('this is all userWannago', allUserWannaGos);
     console.log('this is setted, ', allUserWGs);
-    
   };
 
   return (
     <>
       <h4 className='welcome'>Welcome {user.name}!</h4>
+      <h3>Number of times your links were opened: {numOfTimesLinksOpened}</h3>
       <div className='testingGrid'>
-        <div className='insideGrid'>
-          <h3>Success Ratio</h3>
-          <div>{totalSuccessRatio}%</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Engagement</h3>
-          <div>{totalEngagement}%</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Number of times your links were opened</h3>
-          <div>{numOfTimesLinksOpened}</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Total of active WannaGos</h3>
-          <div>{numOfActiveWannaGos}</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Total of people going to your WannaGos</h3>
-          <div>{totalPplGoing}</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>People that can't go to your WannaGos</h3>
-          <div>{totalRejections}</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Total of people that have suggestions</h3>
-          <div>{totalSuggestions}</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Total of expired WannaGos</h3>
-          <div>{numOfOlderWannaGos}</div>
-        </div>
-        <div className='insideGrid'>
-          <h3>Total of people going to your WannaGos</h3>
-          <div>{totalWannaGos}</div>
-        </div>
+      <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
+      <RadialChartTotals engagement={totalEngagement} successRatio={totalSuccessRatio}></RadialChartTotals>
+      <TotalWannaGos total={totalWannaGos} active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
       </div>
       <h4 className='justCreatedWannaGo'>These are your wannagos:</h4>
       <div className='holdWannaGos'>

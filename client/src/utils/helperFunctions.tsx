@@ -69,9 +69,12 @@ export const aggregateOpenedTimes = (wannaGosOfUser: []) => {
   }, 0);
 };
 
-export const getTotalWannaGosCreated = (wannaGosOfUser: number) => {
-  return wannaGosOfUser + 1;
-};
+// don't think this is used or necessary
+// export const getTotalWannaGosCreated = (wannaGosOfUser: number) => {
+//   // console.log('hereeee', wannaGosOfUser)
+//   return wannaGosOfUser;
+// };
+
 
 //Needs testing
 export const getActiveWannaGos = (wannaGosOfUser: []) => {
@@ -93,8 +96,8 @@ export const getOlderWannaGos = (wannaGosOfUser: []) => {
     });
 };
 export const getNumOfActiveWannaGos = (wannaGosOfUser: []) => {
-  return getActiveWannaGos(wannaGosOfUser).length + 1;
+  return getActiveWannaGos(wannaGosOfUser).length;
 };
 export const getNumOfOlderWannaGos = (wannaGosOfUser: []) => {
-  return getOlderWannaGos(wannaGosOfUser).length + 1;
+  return getOlderWannaGos(wannaGosOfUser).length;
 };
