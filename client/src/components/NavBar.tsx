@@ -15,12 +15,19 @@ export function NavBar(): JSX.Element {
 
 
   return (
-    <nav className=''>
+    <nav className='bg-first'>
       {currentUser ? (
         <div className='flex flex-row'>
           <LandingButton />
-          <div>
-            <Link to={'/user/update-profile'}> Update Profile </Link>
+          <div className='flex flex-row align-middle'>
+            <Link to={'/user/update-profile'}
+                  className='text-third '
+                  style={{ textDecoration: 'none' }}
+                > 
+                 <p className='font-space-grotesk  bg-third text-second p-2'>
+                  UPDATE PROFILE
+                  </p>  
+            </Link>
             <DashBoardButton />
             <LogoutButton logOut={logOut} />
           </div>
@@ -35,7 +42,7 @@ export function NavBar(): JSX.Element {
       ) : (
         <>
           <LandingButton />
-          <div className='flex flex-row'>
+          <div className='flex flex-row justify-end'>
             <LogInButton />
             <SignUpButton />
           </div>

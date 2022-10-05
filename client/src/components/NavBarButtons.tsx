@@ -7,16 +7,8 @@ const logo = require('../finalWannaGoLogo.png');
 
 export const DashBoardButton = () => {
   return (
-    <Link
-      className='iconLinks'
-      to={'/user/dashboard'}
-    >
-      <img
-        title='Go to Dashboard'
-        className='icons dashboard'
-        src={homeSoft}
-        alt='dashboard icon'
-      ></img>
+    <Link className='iconLinks' to={'/user/dashboard'}>
+      <span className="material-symbols-outlined">home</span>
     </Link>
   );
 };
@@ -30,62 +22,33 @@ export const LogoutButton = ({ logOut }: Props) => {
     navigate('/');
   };
   return (
-    <img
-      id='logout-button'
-      title='Log Out'
-      className='icons logout'
-      src={logoutSoft}
-      onClick={handleClick}
-      alt='logout icon'
-    ></img>
+    <span className="material-symbols-outlined" onClick={handleClick}>logout</span>
   );
 };
 
 export const SignUpButton = () => {
   return (
-    <Link
-      className='iconLinks'
-      to={'/user/signup'}
-    >
-      <img
-        title='Sign Up'
-        className='icons signup'
-        src={signUpSoft}
-        alt='signup icon'
-      />
+    <Link className='iconLinks' to={'/user/signup'}>
+      <span className="material-symbols-outlined">person_add</span>
     </Link>
   );
 };
 
 export const LogInButton = () => {
   return (
-    <Link
-      className='iconLinks'
-      to={'/user/login'}
-    >
-      <img
-        title='Log In'
-        className='icons login'
-        src={loginSoft}
-        alt='login icon'
-      ></img>
+    <Link className='fill-third' to={'/user/login'}>
+      <span className="material-symbols-outlined">login</span>
     </Link>
   );
 };
 
 export const LandingButton = () => {
   return (
-    <Link
-      className='iconLinkLanding'
-      to={'/'}
-    >
-      <img
-        id='landing-page'
-        title='Go to Landing Page'
-        className='iconsLogo'
-        src={logo}
-        alt='logo'
-      ></img>
+    <Link className='iconLinkLanding' to={'/'}>
+      <img  title='Go to Landing Page'
+            className='w-48'
+            src={logo}
+            alt='logo'/>
     </Link>
   );
 };
