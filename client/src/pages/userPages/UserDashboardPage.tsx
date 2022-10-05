@@ -90,14 +90,16 @@ const UserDashboard = ({
 
   return (
     <>
-      <h4 className='welcome'>Welcome {user.name}!</h4>
-      <h3>Number of times your links were opened: {numOfTimesLinksOpened}</h3>
+      <p className='font-space-grotesk text-fourth'>Welcome back, {user.name}!</p>
+      <p className='font-space-grotesk text-fourth'>Number of times your links were opened: {numOfTimesLinksOpened}</p>
+
       <div className='testingGrid'>
-      <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
-      <RadialChartTotals engagement={totalEngagement} successRatio={totalSuccessRatio}></RadialChartTotals>
-      <TotalWannaGos total={totalWannaGos} active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
+          <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
+          <RadialChartTotals engagement={totalEngagement} successRatio={totalSuccessRatio}></RadialChartTotals>
+          <TotalWannaGos total={totalWannaGos} active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
       </div>
-      <h4 className='justCreatedWannaGo'>These are your wannagos:</h4>
+
+      <h4 className='justCreatedWannaGo font-space-grotesk text-fourth'>These are your wannagos:</h4>
       <div className='holdWannaGos'>
         {allUserWGs &&
           allUserWGs

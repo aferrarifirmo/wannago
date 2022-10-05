@@ -5,26 +5,20 @@ type Props = { wannaGo: any}
 const WannaGoCard = ({ wannaGo } : Props) => {
   const dateTime = dateFormatter(wannaGo.when);
   return (
-    <div className='wannaGoCardContainer'>
+    <div className='border-2 border-third w-50 m-auto bg-second'>
       <div>
-        <h4>
-          <p>What:</p>{' '}
-          <strong className='description'> {wannaGo.what}</strong>
-        </h4>
+          <p className='font-space-grotesk text-third'>What:</p>{' '}
+          <p className='font-nbinternational font-light text-fourth'> {wannaGo.what}</p>
       </div>
       <div>
-        <h4>
-          <p>Where:</p>{' '}
-          <strong className='description'> {wannaGo.where}</strong>
-        </h4>
+          <p className='font-space-grotesk text-third'>Where:</p>{' '}
+          <p className='font-nbinternational font-light text-fourth'> {wannaGo.where}</p>
       </div>
       <div>
-        <h4>
-          <p>When:</p>
-          <strong className='description'>
+          <p className='font-space-grotesk text-third'>When:</p>
+          <p className='font-nbinternational font-light text-fourth'>
             {dateTime.wannaGoFormat}, At {dateTime.time}
-          </strong>
-        </h4>
+          </p>
       </div>
     </div>
   );
