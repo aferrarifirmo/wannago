@@ -24,23 +24,24 @@ export const getEngagementOfWannaGo = (wannaGo:
         wannaGo.goingCounter +
         wannaGo.suggestionBoxCounter) /
         wannaGo.openedTimes
-    ) || 0
+    ) * 100 || 0
   );
 };
 
 export const getSuccessRatioOfWannaGo = (wannaGo: {goingCounter: number, openedTimes: number}) => {
-  return wannaGo.goingCounter / wannaGo.openedTimes * 100|| 0;
+  return wannaGo.goingCounter / wannaGo.openedTimes * 100 || 0;
 };
 
-export const aggregateSuccessRatio = (wannaGosOfUser: []) => {
-  return wannaGosOfUser.reduce((acc, wannaGo) => {
-    return acc + getSuccessRatioOfWannaGo(wannaGo);
-  }, 0);
-};
+// export const aggregateSuccessRatio = (wannaGosOfUser: []) => {
+//   return wannaGosOfUser.reduce((acc, wannaGo) => {
+//     return acc + getSuccessRatioOfWannaGo(wannaGo);
+//   }, 0);
+// };
 
 export const aggregateEngagement = (wannaGosOfUser: []) => {
   return wannaGosOfUser.reduce((acc, wannaGo) => {
-    return acc + (getEngagementOfWannaGo(wannaGo) * 100);
+    console.log('acc ', acc)
+    return acc + (getEngagementOfWannaGo(wannaGo));
   }, 0);
 };
 

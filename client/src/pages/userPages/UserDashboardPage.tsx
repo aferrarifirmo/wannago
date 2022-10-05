@@ -3,9 +3,10 @@ import { useAuth } from '../../contexts/AuthContext';
 import { putOwnerToWannaGo, getUserById } from '../../utils/apis/userApiServices/userApi';
 import { getAllWannaGosOfUser } from '../../utils/apis/wannagoApiServices/getWannaGos';
 import {
+  getSuccessRatioOfWannaGo,
   getNumOfActiveWannaGos,
   getNumOfOlderWannaGos,
-  aggregateSuccessRatio,
+  // aggregateSuccessRatio,
   aggregateEngagement,
   aggregatePplGoing,
   aggregateRejections,
@@ -33,7 +34,7 @@ const UserDashboard = ({
   const [numOfOlderWannaGos, setNumOfOlderWannaGos] = useState(0);
   const [numOfTimesLinksOpened, setNumOfTimesLinksOpened] = useState(0);
   const [totalEngagement, setTotalEngagement] = useState(0);
-  const [totalSuccessRatio, setTotalSuccessRatio] = useState(0);
+  const [totalSuccessRatio, setTotalSuccessRatio] = useState(0)
   const [allUserWGs, setAllUserWGs] = useState([]);
   //The next two states are to render active and expired wannaGos
   // const [activeWannaGos, setActiveWannaGos] = useState();
@@ -57,6 +58,11 @@ const UserDashboard = ({
       setJustCreatedWG(false);
       return;
     }
+
+    const totalSuccess = () => {
+      return Math.floor((aggregatePplGoing(allUserWannaGos)/aggregateOpenedTimes(allUserWannaGos))*100)
+    }
+
     const allUserWannaGos: [] = await getAllWannaGosOfUser(userToRender._id);
     setAllUserWGs(allUserWannaGos);
     setTotalWannaGos(allUserWannaGos.length + 1);
@@ -67,9 +73,11 @@ const UserDashboard = ({
     setNumOfOlderWannaGos(getNumOfOlderWannaGos(allUserWannaGos));
     setNumOfTimesLinksOpened(aggregateOpenedTimes(allUserWannaGos));
     setTotalEngagement(aggregateEngagement(allUserWannaGos)-100);
-    setTotalSuccessRatio(Math.floor(aggregateSuccessRatio(allUserWannaGos)));
+    // setTotalSuccessRatio(Math.floor(aggregateSuccessRatio(allUserWannaGos)));
+    setTotalSuccessRatio(totalSuccess());
     console.log('this is all userWannago', allUserWannaGos);
     console.log('this is setted, ', allUserWGs);
+    
   };
 
   return (

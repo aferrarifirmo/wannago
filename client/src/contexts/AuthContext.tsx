@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { auth } from '../firebase';
-import { ReactNode } from 'react'
+// import { ReactNode } from 'react'
 // import { User } from '@firebase/auth-types';
 // lines 3, 8 and the type of AuthProvider were added to make 'children' - line 15 not complain
 
 const AuthContext = React.createContext(null);
 
-type Props = { children: ReactNode }
+type Props = { children: any }
 
 export const useAuth: any = () => {
   return useContext(AuthContext);
