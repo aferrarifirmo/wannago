@@ -15,16 +15,16 @@ export function NavBar(): JSX.Element {
 
 
   return (
-    <nav className='bg-first'>
+    <nav className='bg-first '>
       {currentUser ? (
-        <div className='flex flex-row'>
+        <div className='flex justify-between m-0 mt-4'>
           <LandingButton />
-          <div className='flex flex-row align-middle'>
+          <div className='flex flex-row'>
             <Link to={'/user/update-profile'}
                   className='text-third '
                   style={{ textDecoration: 'none' }}
                 > 
-                 <p className='font-space-grotesk  bg-third text-second p-2'>
+                 <p className='font-space-grotesk  bg-third text-second mr-20 mt-3 p-2'>
                   UPDATE PROFILE
                   </p>  
             </Link>
@@ -33,20 +33,18 @@ export function NavBar(): JSX.Element {
           </div>
         </div>
       ) : location.pathname === '/' ? (
-        <>
-          <div className=''>
+          <div className='flex flex-row mx-0'>
             <LogInButton />
             <SignUpButton />
           </div>
-        </>
       ) : (
-        <>
+        <div className='flex flex-row'>
           <LandingButton />
-          <div className='flex flex-row justify-end'>
+          <div className='flex flex-row '>
             <LogInButton />
             <SignUpButton />
           </div>
-        </>
+        </div>
       )}
     </nav>
   );

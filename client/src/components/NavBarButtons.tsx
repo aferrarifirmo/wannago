@@ -1,14 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
-const logoutSoft = require('../icons/logout-soft.png');
-const signUpSoft = require('../icons/sign-up-soft.png');
-const loginSoft = require('../icons/login-soft.png');
-const homeSoft = require('../icons/home-icon-soft.png');
 const logo = require('../finalWannaGoLogo.png');
 
 export const DashBoardButton = () => {
   return (
-    <Link className='iconLinks' to={'/user/dashboard'}>
-      <span className="material-symbols-outlined">home</span>
+    <Link to={'/user/dashboard'} className="mt-4 mr-20">
+      <button>
+        <span className="material-symbols-outlined text-third">home</span>
+      </button>
     </Link>
   );
 };
@@ -22,22 +20,24 @@ export const LogoutButton = ({ logOut }: Props) => {
     navigate('/');
   };
   return (
-    <span className="material-symbols-outlined" onClick={handleClick}>logout</span>
+    <button className='mr-20'>
+      <span className="material-symbols-outlined text-third" onClick={handleClick}>logout</span>
+    </button>
   );
 };
 
 export const SignUpButton = () => {
   return (
     <Link className='iconLinks' to={'/user/signup'}>
-      <span className="material-symbols-outlined">person_add</span>
+      <span className="material-symbols-outlined text-third">person_add</span>
     </Link>
   );
 };
 
 export const LogInButton = () => {
   return (
-    <Link className='fill-third' to={'/user/login'}>
-      <span className="material-symbols-outlined">login</span>
+    <Link to={'/user/login'}>
+      <span className="material-symbols-outlined text-third">login</span>
     </Link>
   );
 };
