@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { auth } from '../firebase';
-import { ReactNode } from 'react'
+// import { ReactNode } from 'react'
 // import { User } from '@firebase/auth-types';
 // lines 3, 8 and the type of AuthProvider were added to make 'children' - line 15 not complain
 
 const AuthContext = React.createContext(null);
 
-type Props = { children: ReactNode }
+type Props = { children: any }
 
 export const useAuth: any = () => {
   return useContext(AuthContext);
@@ -27,7 +27,11 @@ export const AuthProvider = ({ children }: Props) => {
   }, []);
 
   const signUp = async (email: string, password: string) => {
-    return auth.createUserWithEmailAndPassword(email, password);
+    try{
+      return auth.createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.log('email already in use')
+    }
   };
 
   const logIn = (email: string, password: string) => {

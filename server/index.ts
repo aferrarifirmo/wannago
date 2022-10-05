@@ -6,7 +6,7 @@ import morgan from 'koa-morgan';
 import cors from '@koa/cors';
 import router from './router';
 import configs from './config';
-import { isModuleNamespaceObject } from "util/types";
+// import { isModuleNamespaceObject } from "util/types";
 
 const app = new Koa();
 

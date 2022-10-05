@@ -8,19 +8,19 @@ const WannaGoCard = ({ wannaGo } : Props) => {
     <div className='wannaGoCardContainer'>
       <div>
         <h4>
-          <h3>What:</h3>{' '}
+          <p>What:</p>{' '}
           <strong className='description'> {wannaGo.what}</strong>
         </h4>
       </div>
       <div>
         <h4>
-          <h3>Where:</h3>{' '}
+          <p>Where:</p>{' '}
           <strong className='description'> {wannaGo.where}</strong>
         </h4>
       </div>
       <div>
         <h4>
-          <h3>When:</h3>
+          <p>When:</p>
           <strong className='description'>
             {dateTime.wannaGoFormat}, At {dateTime.time}
           </strong>

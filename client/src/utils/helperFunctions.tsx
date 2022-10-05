@@ -24,23 +24,24 @@ export const getEngagementOfWannaGo = (wannaGo:
         wannaGo.goingCounter +
         wannaGo.suggestionBoxCounter) /
         wannaGo.openedTimes
-    ) || 0
+    ) * 100 || 0
   );
 };
 
 export const getSuccessRatioOfWannaGo = (wannaGo: {goingCounter: number, openedTimes: number}) => {
-  return wannaGo.goingCounter / wannaGo.openedTimes * 100|| 0;
+  return wannaGo.goingCounter / wannaGo.openedTimes * 100 || 0;
 };
 
-export const aggregateSuccessRatio = (wannaGosOfUser: []) => {
-  return wannaGosOfUser.reduce((acc, wannaGo) => {
-    return acc + getSuccessRatioOfWannaGo(wannaGo);
-  }, 0);
-};
+// export const aggregateSuccessRatio = (wannaGosOfUser: []) => {
+//   return wannaGosOfUser.reduce((acc, wannaGo) => {
+//     return acc + getSuccessRatioOfWannaGo(wannaGo);
+//   }, 0);
+// };
 
 export const aggregateEngagement = (wannaGosOfUser: []) => {
   return wannaGosOfUser.reduce((acc, wannaGo) => {
-    return acc + (getEngagementOfWannaGo(wannaGo) * 100);
+    console.log('acc ', acc)
+    return acc + (getEngagementOfWannaGo(wannaGo));
   }, 0);
 };
 
@@ -68,9 +69,12 @@ export const aggregateOpenedTimes = (wannaGosOfUser: []) => {
   }, 0);
 };
 
-export const getTotalWannaGosCreated = (wannaGosOfUser: number) => {
-  return wannaGosOfUser + 1;
-};
+// don't think this is used or necessary
+// export const getTotalWannaGosCreated = (wannaGosOfUser: number) => {
+//   // console.log('hereeee', wannaGosOfUser)
+//   return wannaGosOfUser;
+// };
+
 
 //Needs testing
 export const getActiveWannaGos = (wannaGosOfUser: []) => {
@@ -92,8 +96,8 @@ export const getOlderWannaGos = (wannaGosOfUser: []) => {
     });
 };
 export const getNumOfActiveWannaGos = (wannaGosOfUser: []) => {
-  return getActiveWannaGos(wannaGosOfUser).length + 1;
+  return getActiveWannaGos(wannaGosOfUser).length;
 };
 export const getNumOfOlderWannaGos = (wannaGosOfUser: []) => {
-  return getOlderWannaGos(wannaGosOfUser).length + 1;
+  return getOlderWannaGos(wannaGosOfUser).length;
 };

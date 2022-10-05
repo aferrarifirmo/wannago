@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import WannaGoCard from '../components/WannaGoCard';
 import { getWannaGoById } from '../utils/apis/wannagoApiServices/getWannaGos';
-import { getEngagementOfWannaGo, getSuccessRatioOfWannaGo } from '../utils/helperFunctions';
+import { getSuccessRatioOfWannaGo } from '../utils/helperFunctions';
 import { deleteWannaGo } from '../utils/apis/wannagoApiServices/deleteWannaGos';
 import { useNavigate } from 'react-router-dom';
+import DonutChart from '../components/charts/DonutChart'
+import RadialChart from '../components/charts/RadialChart';
 
 const WannaGoStats = () => {
 
@@ -21,20 +23,24 @@ const WannaGoStats = () => {
   const [wannaGo, setWannaGo] = useState({guestLink: '', goingCounter: 0, openedTimes: 0, rejectCounter: 0, suggestionBoxCounter: 0});
   const [copied, setCopied] = useState('Copy');
   const navigate = useNavigate();
+  const [eng, setEng] = useState(0);
 
   useEffect(() => {
     promiseHandler();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
   const promiseHandler = async () => {
     try {
       const queriedWannaGo = await getWannaGoById(id);
       setWannaGo(queriedWannaGo);
+      setEng(Math.floor(((queriedWannaGo.goingCounter + queriedWannaGo.rejectCounter + queriedWannaGo.suggestionBoxCounter)/queriedWannaGo.openedTimes)*100));
     } catch (e) {
       console.log(`Error in the promiseHandler func of GuestLinks.js. Error: ${e}`);
     }
   };
+
   const handleClick = () => {
     navigator.clipboard.writeText(wannaGo.guestLink);
     setCopied('Copied');
@@ -46,6 +52,7 @@ const WannaGoStats = () => {
     deleteWannaGo(id);
     navigate('/user/dashboard');
   };
+
 
   return (
     <>
@@ -81,12 +88,13 @@ const WannaGoStats = () => {
       <br />
       <h4 className='justCreatedWannaGo'>See how well the WannaGo is doing</h4>
       <br />
-      <div className='testingGrid'>
-        <div className='insideGrid' aria-label='Number of times the link was opened'>
-          <h4>Number of times the link was opened</h4>
-          {wannaGo.openedTimes}
-        </div>
-        <div className='insideGrid' aria-label='How many people are going'>
+      <h4 id='times-opened'>Number of times the link was opened: {wannaGo.openedTimes}</h4>
+      <div className='flex'>
+        <div id='donut-container'><DonutChart going={wannaGo.goingCounter} maybe={wannaGo.suggestionBoxCounter} notGoing={wannaGo.rejectCounter}></DonutChart></div>
+        <div id='radial-container'><RadialChart engagement={eng} successRatio={Math.floor(getSuccessRatioOfWannaGo(wannaGo))}></RadialChart></div>
+        {/* <div className='insideGrid' aria-label='Number of times the link was opened'> */}
+        {/* </div> */}
+        {/* <div className='insideGrid' aria-label='How many people are going'>
           <h4>People Going</h4>
           {wannaGo.goingCounter}
         </div>
@@ -97,15 +105,15 @@ const WannaGoStats = () => {
         <div className='insideGrid' aria-label='Number of suggestions made'>
           <h4>Number of suggestions made</h4>
           {wannaGo.suggestionBoxCounter}
-        </div>
-        <div className='insideGrid'  aria-label='Engagement'>
+        </div> */}
+        {/* <div className='insideGrid' aria-label='Engagement'>
           <h4>Engagement</h4>
-          {getEngagementOfWannaGo(wannaGo)}%
+          {eng}%
         </div>
         <div className='insideGrid' aria-label='Success ratio'>
           <h4>Success Ratio</h4>
           {Math.floor(getSuccessRatioOfWannaGo(wannaGo))}%
-        </div>
+        </div> */}
       </div>
     </>
   );
