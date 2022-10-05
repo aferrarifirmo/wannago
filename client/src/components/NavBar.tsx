@@ -7,7 +7,6 @@ import {
   LandingButton,
   DashBoardButton,
 } from './NavBarButtons';
-import '../css/NavBar.css';
 
 export function NavBar(): JSX.Element {
 
@@ -16,9 +15,9 @@ export function NavBar(): JSX.Element {
 
 
   return (
-    <nav className='navContainer'>
+    <nav className=''>
       {currentUser ? (
-        <div className='navButtonsContainer'>
+        <div className='flex flex-row'>
           <LandingButton />
           <div>
             <Link to={'/user/update-profile'}> Update Profile </Link>
@@ -28,7 +27,7 @@ export function NavBar(): JSX.Element {
         </div>
       ) : location.pathname === '/' ? (
         <>
-          <div className='landingPageIcons'>
+          <div className=''>
             <LogInButton />
             <SignUpButton />
           </div>
@@ -36,7 +35,7 @@ export function NavBar(): JSX.Element {
       ) : (
         <>
           <LandingButton />
-          <div className='landingPageIcons'>
+          <div className='flex flex-row'>
             <LogInButton />
             <SignUpButton />
           </div>
