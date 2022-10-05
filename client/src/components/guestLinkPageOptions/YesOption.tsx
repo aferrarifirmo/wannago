@@ -6,6 +6,7 @@ type Props = { id: any, goingCounter: number, ownerName: string }
 const YesOption = ({ id, goingCounter, ownerName }: Props) => {
   const [submitClicked, setSubmitClicked] = useState(false);
 
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const name = e.target.name.value;

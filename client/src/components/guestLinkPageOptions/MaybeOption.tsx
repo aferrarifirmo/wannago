@@ -10,6 +10,7 @@ type Props = { id: any, suggestionBoxCounter: number, ownerName: string };
 const MaybeOption = ({ id, suggestionBoxCounter, ownerName } : Props) => {
   const [msgSent, setMsgSent] = useState(false);
 
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const msg = e.target.suggestion.value;
