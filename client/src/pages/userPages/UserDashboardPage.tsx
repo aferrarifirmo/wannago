@@ -99,7 +99,7 @@ const UserDashboard = ({
           <TotalWannaGos total={totalWannaGos} active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
       </div>
 
-      <h4 className='justCreatedWannaGo font-space-grotesk text-fourth'>These are your wannagos:</h4>
+      <h4 className='m-10 font-space-grotesk text-fourth my-10'>These are your wannagos:</h4>
       <div className='grid grid-cols-3 gap-10 mx-10'>
         {allUserWGs &&
           allUserWGs
