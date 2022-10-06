@@ -90,8 +90,8 @@ const UserDashboard = ({
 
   return (
     <>
-      <p className='font-space-grotesk text-fourth'>Welcome back, {user.name}!</p>
-      <p className='font-space-grotesk text-fourth'>Number of times your links were opened: {numOfTimesLinksOpened}</p>
+      <p className='font-nimbus text-2xl font-bold text-third mx-10'>Welcome back, {user.name}!</p>
+      <p className='font-nimbus text-fourth mx-10'>Number of times your links were opened: {numOfTimesLinksOpened}</p>
 
       <div className='testingGrid'>
           <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
@@ -99,7 +99,7 @@ const UserDashboard = ({
           <TotalWannaGos total={totalWannaGos} active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
       </div>
 
-      <h4 className='m-10 font-space-grotesk text-fourth my-10'>These are your wannagos:</h4>
+      <h4 className='m-10 font-nimbus font-bold text-third my-10'>These are your wannagos:</h4>
       <div className='grid grid-cols-3 gap-10 mx-10'>
         {allUserWGs &&
           allUserWGs

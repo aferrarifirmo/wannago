@@ -61,32 +61,25 @@ const PlanCreated = () => {
 
   return (
     <>
-      <h1 className='justCreatedWannaGo'>What a Plan!</h1>
-      <WannaGoCard wannaGo={wannaGo} />
+      <div className='ml-60 mb-10' >
+        <h1 className='font-space-grotesk'>What a Plan!</h1>
+      </div>
+      <div className='w-50 mx-auto mb-10'>
+        <WannaGoCard wannaGo={wannaGo} />
+      </div>
       <div className='justCreatedWannaGoSedondPart'>
-        <h4>Ask if they wannaGo!</h4>
-        <h4>Share this link:</h4>
+        <h4 className='ml-2 font-nbinternational text-third'>Ask if they wannaGo!</h4>
+        <h6 className='ml-2 font-nbinternational text-third'>
+          Share <a href={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}>this event </a>
+          
+          with one of the following options so people can let you know if they want to join: 
+
+        </h6>
         <div aria-label='guest link container'>
-          <a
-            className='guestLink'
-            target='blank'
-            href={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-          >
-            {guestLink}
-            {/*port needs to be the same as the one in the client not the backend*/}
-          </a>
-          <button
-            className='buttonCopy'
-            onClick={handleClick}
-          >
-            {copied}
-          </button>
-
-
-          <div className='social-share-container'>
+          <div className='social-share-container mx-2 flex flex-row align-middle'>
             <EmailShareButton
-              url={share}
-              className="Demo__some-network__share-button"
+              url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
+              className="Demo__some-network__share-button mr-2"
             >
               <EmailIcon size={32} round />
             </EmailShareButton>
@@ -94,24 +87,31 @@ const PlanCreated = () => {
             <FacebookMessengerShareButton
               appId=''
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button"
+              className="Demo__some-network__share-button mr-2"
             >
               <FacebookMessengerIcon size={32} round />
             </FacebookMessengerShareButton>
 
             <TelegramShareButton
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button"
+              className="Demo__some-network__share-button mr-2"
             >
               <TelegramIcon size={32} round />
             </TelegramShareButton>
 
             <WhatsappShareButton
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button"
+              className="Demo__some-network__share-button mr-2"
             >
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
+
+            <button
+                className='bg-third p-2 text-second mx-2 '
+                onClick={handleClick}
+            >
+                {copied}
+            </button>
           </div>
 
         </div>
