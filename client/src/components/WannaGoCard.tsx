@@ -1,9 +1,11 @@
 import { dateFormatter } from '../utils/helperFunctions';
 
-type Props = { wannaGo: any}
+type Props = { wannaGo: { when: number, what: string, where: string} | any}
 
 const WannaGoCard = ({ wannaGo } : Props) => {
+
   const dateTime = dateFormatter(wannaGo.when);
+
   return (
     <div className='wannaGoCardContainer'>
       <div>

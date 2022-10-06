@@ -7,16 +7,16 @@ import '../../css/Authentication.css';
 
 export default function UpdateProfile() {
   
-  const emailRef: {current: {value: any}} | any = useRef();
-  const passwordRef: {current: {value: any}} | any = useRef();
-  const passwordConfirmRef: {current: {value: any}} | any = useRef();
-  const nameRef: {current: {value: any} | undefined} | undefined = useRef();
+  const emailRef: {current: {value: string} | undefined} | undefined = useRef();
+  const passwordRef: {current: {value: string} | undefined} | undefined = useRef();
+  const passwordConfirmRef: {current: {value: string} | undefined} | undefined = useRef();
+  const nameRef: {current: {value: string} | undefined} | undefined = useRef();
   const { updateEmail, updatePassword, updateName, currentUser } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const promises = [];
@@ -33,7 +33,7 @@ export default function UpdateProfile() {
       promises.push(updatePassword(passwordRef.current.value));
     }
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (passwordRef.current!.value !== passwordConfirmRef.current!.value) {
       setError('Passwords do not match');
       return;
     }
@@ -59,7 +59,7 @@ export default function UpdateProfile() {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type='text'
-                ref={nameRef as React.RefObject<any>}
+                ref={nameRef as React.RefObject<HTMLInputElement>}
                 defaultValue={currentUser.displayName}
                 required
               />
@@ -68,7 +68,7 @@ export default function UpdateProfile() {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type='email'
-                ref={emailRef as React.RefObject<any>}
+                ref={emailRef as React.RefObject<HTMLInputElement>}
                 defaultValue={currentUser.email}
                 required
               />
@@ -77,7 +77,7 @@ export default function UpdateProfile() {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type='password'
-                ref={passwordRef as React.RefObject<any>}
+                ref={passwordRef as React.RefObject<HTMLInputElement>}
                 placeholder='Leave blank to keep the same password'
               />
             </Form.Group>
@@ -85,7 +85,7 @@ export default function UpdateProfile() {
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control
                 type='password'
-                ref={passwordConfirmRef as React.RefObject<any>}
+                ref={passwordConfirmRef as React.RefObject<HTMLInputElement>}
                 placeholder='Leave blank to keep the same password'
               />
             </Form.Group>

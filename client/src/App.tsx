@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Container } from "react-bootstrap";
-// import initialWannaGo from './data';
 import { NavBar } from './components/NavBar';
 import HomePage from './pages/HomePage';
 import WannaGoStats from './pages/WannaGoStatsPage';
@@ -37,7 +36,6 @@ function App() {
         <NavBar></NavBar>
         <Routes>
           <Route
-            // exact :: docs say react router v6 doesn´t support 'exact' anymore
             path='/'
             element={
               <HomePage/>
@@ -55,18 +53,15 @@ function App() {
             }
           ></Route>
           <Route
-            // exact
             path='/wannago/:id'
             element={<CreatedWannaGoPage />}
           ></Route>
           <Route
-            // exact
             path='/wannago/guest-link/:id'
             element={<GuestsLinkPage />}
           ></Route>
           <Route element={<UserPrivateRoute />}>
             <Route
-              // exact
               path='/user/signup'
               element={
                 <>
@@ -79,7 +74,6 @@ function App() {
               }
             ></Route>
             <Route
-              // exact
               path='/user/login'
               element={
                 <>
@@ -120,19 +114,14 @@ function App() {
               }
             ></Route>
             <Route
-              // exact
               path='user/wannaGo/stats/:id'
               element={<WannaGoStats />}
             ></Route>
-            {/* <Route element={<PrivateRoute />}> */}
             <Route
-              // exact
               path='/user/update-profile'
               element={<UpdateProfile />}
             ></Route>
-            {/* </Route> */}
             <Route
-              // exact
               path='/user/delete-account'
               element={<DeleteUser />}
             ></Route>

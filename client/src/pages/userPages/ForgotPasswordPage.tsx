@@ -6,20 +6,19 @@ import '../../css/Authentication.css';
 
 export default function ForgotPassword() {
   
-  const emailRef : {current: {value: any}} | any = useRef();
+  const emailRef : {current: {value: string} | undefined} | undefined = useRef();
   const { resetPassword } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     try {
       setMessage('');
       setError('');
       setLoading(true);
-      await resetPassword(emailRef.current.value);
+      await resetPassword(emailRef.current!.value);
       setMessage('Check your inbox for further instructions');
     } catch {
       setError('Failed to reset password');
@@ -39,7 +38,7 @@ export default function ForgotPassword() {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type='email'
-                ref={emailRef}
+                ref={emailRef as React.RefObject<HTMLInputElement>}
                 required
               />
             </Form.Group>

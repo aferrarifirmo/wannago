@@ -14,7 +14,7 @@ const TotalWannaGos = ({ total, active, past}: Props) => {
           total: {
             show: true,
             label: 'Total',
-            formatter: function(w: any) {
+            formatter: function(w: () => void) {
               return 11
             }
           },
