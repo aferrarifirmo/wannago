@@ -100,7 +100,7 @@ const UserDashboard = ({
       </div>
 
       <h4 className='justCreatedWannaGo font-space-grotesk text-fourth'>These are your wannagos:</h4>
-      <div className='holdWannaGos'>
+      <div className='grid grid-cols-3 gap-10 mx-10'>
         {allUserWGs &&
           allUserWGs
             .sort((a: any, b: any) => {return Number(new Date(a.when)) - Number(new Date(b.when))})

@@ -5,7 +5,7 @@ type Props = { wannaGo: any}
 const WannaGoCard = ({ wannaGo } : Props) => {
   const dateTime = dateFormatter(wannaGo.when);
   return (
-    <div className='border-2 border-third w-50 m-auto bg-second'>
+    <div className='border-2 border-third m-auto bg-second shadow-lg'>
       <div>
           <p className='font-space-grotesk text-third'>What:</p>{' '}
           <p className='font-nbinternational font-light text-fourth'> {wannaGo.what}</p>
