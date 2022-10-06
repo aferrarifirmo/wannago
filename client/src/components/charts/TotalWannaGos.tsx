@@ -1,47 +1,49 @@
 import Chart from "react-apexcharts";
 
-type Props = { total: number, active: number, past: number }
+type Props = { active: number, past: number }
 
-const TotalWannaGos = ({ total, active, past}: Props) => {
+const TotalWannaGos = ({ active, past }: Props) => {
 
   const options = {
-    labels: ['Total', 'Active', 'Past'],
-    colors: ['#f25477', '#ffa7a6', '#4a90e2'],
+    labels: ['Active', 'Past'],
+    colors: ['#f25477', '#4a90e2'],
+    dataLabels: {
+      enabled: false,
+    },
     plotOptions: {
-      radialBar: {
-        dataLabels: {
-          enabled: true,
-          total: {
-            show: true,
-            label: 'Total',
-            formatter: function(w: () => void) {
-              return 11
-            }
-          },
-        },
-        legend: {
-          show: true,
-          floating: true,
-          fontSize: '13px',
-          position: 'bottom',
-          // offsetX: 160,
-          offsetY: 7,
+      pie: {
+        expandOnClick: false,
+        donut: {
+          size: '83px',
           labels: {
-            useSeriesColors: true,
-          },
-          markers: {
-            size: 0
+            show: true,
+            total: {
+              label: "Total WannaGo's",
+              fontWeight: 'bold',
+              show: true,
+              showAlways: true,
+            },
           },
         },
       },
     },
+    legend: {
+      show: true,
+      floating: false,
+      fontSize: '13px',
+      position: 'bottom',
+      offsetY: -0.9,
+      labels: {
+        useSeriesColors: true,
+      },
+    },
   };
 
-  const series = [total, active, past];
+  const series = [active, past];
 
   return (
-    <div id="chart">
-      <Chart options={options} series={series} type='radialBar' width='120%' />
+    <div id="chart" className="donut-chart">
+      <Chart options={options} series={series} type="donut" width='120%' height='180%' />
     </div>
   )
 }
