@@ -4,11 +4,8 @@ import '../../css/MaybeOption.css';
 
 type Props = { id: any, suggestionBoxCounter: number, ownerName: string };
 
-
-
 const MaybeOption = ({ id, suggestionBoxCounter, ownerName } : Props) => {
   const [msgSent, setMsgSent] = useState(false);
-
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     console.log(e);

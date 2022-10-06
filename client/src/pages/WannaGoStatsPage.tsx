@@ -9,14 +9,6 @@ import RadialChart from '../components/charts/RadialChart';
 
 const WannaGoStats = () => {
 
-  // interface wannaGo {
-  //   guestLink: string,
-  //   goingCounter: number,
-  //   openedTimes: number,
-  //   rejectCounter: number,
-  //   suggestionBoxCounter: number
-  // }
-
   const params = new URLSearchParams(window.location.pathname);
   const id = params.get('/user/wannago/stats/id');
   console.log('this is id', id);
@@ -29,7 +21,6 @@ const WannaGoStats = () => {
     promiseHandler();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   const promiseHandler = async () => {
     try {
@@ -52,7 +43,6 @@ const WannaGoStats = () => {
     deleteWannaGo(id);
     navigate('/user/dashboard');
   };
-
 
   return (
     <>

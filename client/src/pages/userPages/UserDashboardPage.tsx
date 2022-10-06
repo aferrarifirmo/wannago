@@ -3,11 +3,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { putOwnerToWannaGo, getUserById } from '../../utils/apis/userApiServices/userApi';
 import { getAllWannaGosOfUser } from '../../utils/apis/wannagoApiServices/getWannaGos';
 import {
-  // getSuccessRatioOfWannaGo,
   getNumOfActiveWannaGos,
   getNumOfOlderWannaGos,
-  // aggregateSuccessRatio,
-  // aggregateEngagement,
   aggregatePplGoing,
   aggregateRejections,
   aggregateSuggestions,
@@ -39,11 +36,8 @@ const UserDashboard = ({
   const [totalEngagement, setTotalEngagement] = useState(0);
   const [totalSuccessRatio, setTotalSuccessRatio] = useState(0)
   const [allUserWGs, setAllUserWGs] = useState([]);
-  //The next two states are to render active and expired wannaGos
-  // const [activeWannaGos, setActiveWannaGos] = useState();
-  // const [olderWannaGos, setOlderWannaGos] = useState();
-  
   const { currentUser } = useAuth();
+
   useEffect(() => {
     handlePromise();
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,17 +67,15 @@ const UserDashboard = ({
     const allUserWannaGos: [] = await getAllWannaGosOfUser(userToRender._id);
     setAllUserWGs(allUserWannaGos);
     console.log(allUserWannaGos.length);
-    setTotalWannaGos(allUserWannaGos.length); // ok
+    setTotalWannaGos(allUserWannaGos.length);
     setTotalPplGoing(aggregatePplGoing(allUserWannaGos));
     setTotalRejections(aggregateRejections(allUserWannaGos));
     setTotalSuggestions(aggregateSuggestions(allUserWannaGos));
     setNumOfActiveWannaGos(getNumOfActiveWannaGos(allUserWannaGos));
     setNumOfOlderWannaGos(getNumOfOlderWannaGos(allUserWannaGos));
     setNumOfTimesLinksOpened(aggregateOpenedTimes(allUserWannaGos));
-    // setTotalEngagement(aggregateEngagement(allUserWannaGos)-100);
-    // setTotalSuccessRatio(Math.floor(aggregateSuccessRatio(allUserWannaGos)));
-    setTotalSuccessRatio(totalSuccess()); //ok
-    setTotalEngagement(totalEng()); // ok
+    setTotalSuccessRatio(totalSuccess());
+    setTotalEngagement(totalEng());
     console.log('this is all userWannago', allUserWannaGos);
     console.log('this is setted, ', allUserWGs);
   };

@@ -61,7 +61,6 @@ const GuestLink = () => {
     }
   };
   
-
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     //@ts-ignore
     switch (e.target.innerText) {

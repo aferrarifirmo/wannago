@@ -14,7 +14,6 @@ export function NavBar(): JSX.Element {
   const { currentUser, logOut } = useAuth();
   const location = useLocation();
 
-
   return (
     <nav className='navContainer'>
       {currentUser ? (
@@ -45,5 +44,3 @@ export function NavBar(): JSX.Element {
     </nav>
   );
 };
-
-// export default NavBar;

@@ -24,10 +24,8 @@ export default function VerticalStepper({
   justCreatedWG,
   setJustCreatedWG,
 }: Props) {
-  //Hooks
   const [activeStep, setActiveStep] = useState(0);
   let navigate = useNavigate();
-  // const { currentUser } = useAuth();
 
   const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,7 +34,6 @@ export default function VerticalStepper({
     // @ts-ignore
     const inputValue = e.target[0].value;
     wannaGo[field] = inputValue;
-
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 

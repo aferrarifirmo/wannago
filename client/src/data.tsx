@@ -1,4 +1,3 @@
-//External dependency
 const dayjs = require('dayjs');
 
 export default interface initialWannaGo {
@@ -8,14 +7,6 @@ export default interface initialWannaGo {
   ownerName: string,
   _id: string,
 };
-
-// export default interface initialWannaGo {
-//   what: '',
-//   when: '',
-//   where: '',
-//   ownerName: '',
-//   _id: '',
-// }
 
 const now = dayjs(Date.now()).format('YYYY-MM-DDTHH:mm');
 
@@ -27,7 +18,7 @@ export const steps = [
       <>
       <label htmlFor='owner-name'></label>
       <input
-        data-text='Who?' // check if this works - it was complianing when just 'text was written
+        data-text='Who?'
         type='text'
         id='owner-name'
         name='ownerName'
@@ -88,5 +79,3 @@ export const steps = [
     ),
   },
 ];
-
-// export default initialWannaGo;
