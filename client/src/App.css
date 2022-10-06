@@ -166,11 +166,6 @@
   align-items: center;
 }
 
-.flex {
-  display: flex;
-  margin: 3rem;
-  justify-content: space-around;
-}
 
 #times-opened {
   margin-left: 3rem;

@@ -1,3 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'nbinternational';
+  font-weight: 400;
+  src: url(./assets/fonts/NBinternational/NB-International-Pro-Regular.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'nbinternational';
+  font-weight: 200;
+  src: url(./assets/fonts/NBinternational/NB-International-Pro-Light.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'nbinternational';
+  font-weight: 600;
+  src: url(./assets/fonts/NBinternational/NB-International-Pro-Bold.ttf) format('ttf');
+}
+
+@font-face {
+  font-family: 'nimbus';
+  font-weight: 400;
+  src: url(./assets/fonts/Nimbus/NimbusSanL-Reg.otf) format('otf');
+}
+
+@font-face {
+  font-family: 'nimbus';
+  font-weight: 600;
+  src: url(./assets/fonts/Nimbus/NimbusSanL-Bol.otf) format('otf');
+}
+
+
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

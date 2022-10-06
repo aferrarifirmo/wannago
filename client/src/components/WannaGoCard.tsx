@@ -7,26 +7,26 @@ const WannaGoCard = ({ wannaGo } : Props) => {
   const dateTime = dateFormatter(wannaGo.when);
 
   return (
-    <div className='wannaGoCardContainer'>
+    <div className='border-2 border-third m-auto bg-second shadow-lg hover:scale-105 ease-in duration-100'>
       <div>
-        <h4>
-          <p>What:</p>{' '}
-          <strong className='description'> {wannaGo.what}</strong>
-        </h4>
+          <p className='font-space-grotesk text-third mt-4 pl-4'>
+            What:
+            <span className='font-nbinternational font-light text-fourth'> {wannaGo.what}</span>
+          </p>{' '}
       </div>
       <div>
-        <h4>
-          <p>Where:</p>{' '}
-          <strong className='description'> {wannaGo.where}</strong>
-        </h4>
+          <p className='font-space-grotesk text-third pl-4'>
+            Where:
+            <span className='font-nbinternational font-light text-fourth'> {wannaGo.where}</span>
+          </p>{' '}
       </div>
       <div>
-        <h4>
-          <p>When:</p>
-          <strong className='description'>
+          <p className='font-space-grotesk text-third pl-4'>
+            When:
+            <span className='font-nbinternational font-light text-fourth'>
             {dateTime.wannaGoFormat}, At {dateTime.time}
-          </strong>
-        </h4>
+          </span>
+          </p>
       </div>
     </div>
   );

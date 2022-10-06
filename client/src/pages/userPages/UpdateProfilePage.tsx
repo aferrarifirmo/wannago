@@ -50,13 +50,13 @@ export default function UpdateProfile() {
 
   return (
     <>
-      <Card>
-        <Card.Body>
-          <h2 className='card-body-h2'>Update Profile</h2>
+      <Card className='w-50 mx-auto bg-second '>
+        <Card.Body className='bg-first'>
+          <h2 className='font-nbinternational font-bold text-third'>Update Profile</h2>
           {error && <Alert variant='danger'>{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id='name'>
-              <Form.Label>Name</Form.Label>
+              <Form.Label className='font-space-grotesk'>Name</Form.Label>
               <Form.Control
                 type='text'
                 ref={nameRef as React.RefObject<HTMLInputElement>}
@@ -65,7 +65,7 @@ export default function UpdateProfile() {
               />
             </Form.Group>
             <Form.Group id='email'>
-              <Form.Label>Email</Form.Label>
+              <Form.Label className='font-space-grotesk'>Email</Form.Label>
               <Form.Control
                 type='email'
                 ref={emailRef as React.RefObject<HTMLInputElement>}
@@ -74,7 +74,7 @@ export default function UpdateProfile() {
               />
             </Form.Group>
             <Form.Group id='password'>
-              <Form.Label>Password</Form.Label>
+              <Form.Label className='font-space-grotesk'>Password</Form.Label>
               <Form.Control
                 type='password'
                 ref={passwordRef as React.RefObject<HTMLInputElement>}
@@ -82,16 +82,17 @@ export default function UpdateProfile() {
               />
             </Form.Group>
             <Form.Group id='password-confirm'>
-              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Label className='font-space-grotesk'>Password Confirmation</Form.Label>
               <Form.Control
                 type='password'
                 ref={passwordConfirmRef as React.RefObject<HTMLInputElement>}
                 placeholder='Leave blank to keep the same password'
+                className='bg-first'
               />
             </Form.Group>
             <Button
               type='submit'
-              className='signup-button'
+              className='signup-button my-10'
               disabled={loading}
             >
               Update
@@ -100,8 +101,8 @@ export default function UpdateProfile() {
         </Card.Body>
       </Card>
       <div className='line-after-auth-card'>
-        <Link to='/user/dashboard'>Cancel</Link> &nbsp;
-        <Link to='/user/delete-account'>Delete Account</Link>
+        <Link to='/user/dashboard' className='font-space-grotesk text-third'>Cancel</Link> &nbsp;
+        <Link to='/user/delete-account' className='font-space-grotesk text-third'>Delete Account</Link>
       </div>
     </>
   );
