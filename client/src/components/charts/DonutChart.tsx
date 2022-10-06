@@ -19,6 +19,7 @@ const DonutChart = ({ going, maybe, notGoing } : Props) => {
           labels: {
             show: true,
             total: {
+              fontWeight: 'bold',
               show: true,
               showAlways: true,
             },
@@ -42,7 +43,7 @@ const DonutChart = ({ going, maybe, notGoing } : Props) => {
 
   return (
     <div id="chart" className="donut-chart">
-      <Chart options={options} series={series} type="donut" width='120%' height='110%' />
+      <Chart options={options} series={series} type="donut" width='120%' height='180%' />
     </div>
   )
 }

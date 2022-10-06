@@ -29,7 +29,7 @@ const UserDashboard = ({
   const [totalPplGoing, setTotalPplGoing] = useState(0);
   const [totalRejections, setTotalRejections] = useState(0);
   const [totalSuggestions, setTotalSuggestions] = useState(0);
-  const [totalWannaGos, setTotalWannaGos] = useState(0);
+  // const [totalWannaGos, setTotalWannaGos] = useState(0);
   const [numOfActiveWannaGos, setNumOfActiveWannaGos] = useState(0);
   const [numOfOlderWannaGos, setNumOfOlderWannaGos] = useState(0);
   const [numOfTimesLinksOpened, setNumOfTimesLinksOpened] = useState(0);
@@ -67,7 +67,7 @@ const UserDashboard = ({
     const allUserWannaGos: [] = await getAllWannaGosOfUser(userToRender._id);
     setAllUserWGs(allUserWannaGos);
     console.log(allUserWannaGos.length);
-    setTotalWannaGos(allUserWannaGos.length);
+    // setTotalWannaGos(allUserWannaGos.length);
     setTotalPplGoing(aggregatePplGoing(allUserWannaGos));
     setTotalRejections(aggregateRejections(allUserWannaGos));
     setTotalSuggestions(aggregateSuggestions(allUserWannaGos));
@@ -86,9 +86,10 @@ const UserDashboard = ({
       <p className='font-nimbus text-fourth mx-10'>Number of times your links were opened: {numOfTimesLinksOpened}</p>
 
       <div className='testingGrid'>
-          <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
-          <RadialChartTotals engagement={totalEngagement} successRatio={totalSuccessRatio}></RadialChartTotals>
-          <TotalWannaGos total={totalWannaGos} active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
+      <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
+      <RadialChartTotals engagement={totalEngagement} successRatio={totalSuccessRatio}></RadialChartTotals>
+      <TotalWannaGos active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
+
       </div>
 
       <h4 className='m-10 font-nimbus font-bold text-third my-10'>These are your wannagos:</h4>
