@@ -81,10 +81,12 @@ const GuestLink = () => {
 
   return (
     <>
-      <h2 className='justCreatedWannaGo'>
+      <h2 className='justCreatedWannaGo mb-10'>
         {wannaGo.ownerName} wants to know if you wannaGo
       </h2>
-      <WannaGoCard wannaGo={wannaGo}></WannaGoCard>
+      <div className='w-50 mx-auto'>
+        <WannaGoCard wannaGo={wannaGo}></WannaGoCard>
+      </div>
       {!option ? (
         <div className='buttons' aria-label='Yes, No or Maybe buttons container'>
           <NoButton handleClick={handleClick}></NoButton>

@@ -82,15 +82,18 @@ const UserDashboard = ({
 
   return (
     <>
-      <h4 className='welcome'>Welcome {user.name}!</h4>
-      <h3>Number of times your links were opened: {numOfTimesLinksOpened}</h3>
+      <p className='font-nimbus text-2xl font-bold text-third mx-10'>Welcome back, {user.name}!</p>
+      <p className='font-nimbus text-fourth mx-10'>Number of times your links were opened: {numOfTimesLinksOpened}</p>
+
       <div className='testingGrid'>
       <DonutChartTotals going={totalPplGoing} maybe={totalSuggestions} notGoing={totalRejections}></DonutChartTotals>
       <RadialChartTotals engagement={totalEngagement} successRatio={totalSuccessRatio}></RadialChartTotals>
       <TotalWannaGos active={numOfActiveWannaGos} past={numOfOlderWannaGos}></TotalWannaGos>
+
       </div>
-      <h4 className='justCreatedWannaGo'>These are your wannagos:</h4>
-      <div className='holdWannaGos'>
+
+      <h4 className='m-10 font-nimbus font-bold text-third my-10'>These are your wannagos:</h4>
+      <div className='grid grid-cols-3 gap-10 mx-10'>
         {allUserWGs &&
           allUserWGs
             .sort((a: any, b: any) => {return Number(new Date(a.when)) - Number(new Date(b.when))})

@@ -10,20 +10,20 @@ const MainPage = () => {
 
   return (
   <>
-      <div className='main'>
+      <div className='bg-first main'>
         <img
           className='img'
           src={logo}
           alt='logo'
           data-testid='logo'
           ></img>
-        <h1 className='title-main'>Create a plan. Share it!</h1>
+        <h1 className='font-nbinternational font-light text-fourth'>Create a plan. Share it!</h1>
         <button
           onClick={handleClick}
-          className='button'
+          className='font-space-grotesk bg-third'
           data-testid='plan-it-button'
           >
-          Plan it!
+          <p className='m-3 text-second'>PLAN IT!</p>
         </button>
       </div>
   </>
