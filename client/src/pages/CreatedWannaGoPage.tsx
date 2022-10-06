@@ -76,7 +76,7 @@ const PlanCreated = () => {
        
             <EmailShareButton
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button mr-2"
+              className="Demo__some-network__share-button mr-2 hover:scale-150 ease-in duration-100"
             >
               <EmailIcon size={32} round />
             </EmailShareButton>
@@ -84,27 +84,27 @@ const PlanCreated = () => {
             <FacebookMessengerShareButton
               appId=''
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button mr-2"
+              className="Demo__some-network__share-button mr-2 hover:scale-150 ease-in duration-100"
             >
               <FacebookMessengerIcon size={32} round />
             </FacebookMessengerShareButton>
 
             <TelegramShareButton
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button mr-2"
+              className="Demo__some-network__share-button mr-2 hover:scale-150 ease-in duration-100"
             >
               <TelegramIcon size={32} round />
             </TelegramShareButton>
 
             <WhatsappShareButton
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
-              className="Demo__some-network__share-button mr-2"
+              className="Demo__some-network__share-button mr-2 hover:scale-150 ease-in duration-100"
             >
               <WhatsappIcon size={32} round />
             </WhatsappShareButton>
 
             <button
-                className='bg-third p-2 text-second mx-2 '
+                className='bg-third p-2 text-second mx-2 hover:scale-110 ease-in duration-100'
                 onClick={handleClick}
             >
                 {copied}

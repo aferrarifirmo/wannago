@@ -23,7 +23,7 @@ export function NavBar(): JSX.Element {
                   className='text-third '
                   style={{ textDecoration: 'none' }}
                 > 
-                 <p className='font-space-grotesk  bg-third text-second mr-20 mt-3 p-2'>
+                 <p className='font-space-grotesk  bg-third text-second mr-10 mt-3 p-2 hover:scale-110 ease-in duration-100'>
                   UPDATE PROFILE
                   </p>  
             </Link>
@@ -32,15 +32,19 @@ export function NavBar(): JSX.Element {
           </div>
         </div>
       ) : location.pathname === '/' ? (
-          <div className='flex flex-row mx-0'>
-            <LogInButton />
+          <div className='flex flex-row justify-end mr-10 mt-4'>
+            <div className='mx-4'>
+              <LogInButton />
+            </div>
             <SignUpButton />
           </div>
       ) : (
-        <div className='flex flex-row'>
+        <div className='flex justify-between m-0 mt-4'>
           <LandingButton />
-          <div className='flex flex-row '>
-            <LogInButton />
+          <div className='flex flex-row mr-10'>
+            <div className='mx-4'>
+              <LogInButton />
+            </div>
             <SignUpButton />
           </div>
         </div>

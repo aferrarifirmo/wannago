@@ -30,7 +30,7 @@ const RadialChart = ({ engagement, successRatio}: Props) => {
 
   return (
     <div id="chart">
-      <Chart options={options} series={series} type='radialBar' width='120%' />
+      <Chart options={options} series={series} type='radialBar' width='200%' />
     </div>
   )
 }

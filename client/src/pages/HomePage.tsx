@@ -20,7 +20,7 @@ const MainPage = () => {
         <h1 className='font-nbinternational font-light text-fourth'>Create a plan. Share it!</h1>
         <button
           onClick={handleClick}
-          className='font-space-grotesk bg-third'
+          className='font-space-grotesk bg-third hover:scale-110 ease-in duration-100'
           data-testid='plan-it-button'
           >
           <p className='m-3 text-second'>PLAN IT!</p>

@@ -46,42 +46,49 @@ const WannaGoStats = () => {
 
   return (
     <>
-      <WannaGoCard wannaGo={wannaGo} />
+      <div className='w-50 mx-auto '>
+        <WannaGoCard wannaGo={wannaGo} />
+      </div>
       <div>
-        <h4 className='justCreatedWannaGoSedondPart'>Guest Link:</h4>
+        
         {wannaGo.guestLink && (
-          <div className='justCreatedWannaGo'>
+          <div className='w-50 mx-auto'>
             <a
               href='http://localhost:3001/wannago/guest-link/id=6332ff751b7dcf3f491aa7d5'
               target='blank'
             >
               {wannaGo.guestLink}
             </a>
-            <button
-              className='buttonCopy'
-              onClick={handleClick}
-            >
-              {copied}
-            </button>
-            <div className='buttonDelete'>
+            <div className='w-50 mx-auto'>
               <button
-                className='button'
+                className='bg-third p-3 font-space-grotesk text-second mx-10 hover:scale-110'
+                onClick={handleClick}
+              >
+                {copied}
+              </button>
+
+              <button
+                className='bg-third p-3 text-second font-space-grotesk hover:scale-110'
                 onClick={handleDelete}
               >
                 Delete It!
               </button>
-              <br />
+
+
             </div>
+            
           </div>
         )}
       </div>
       <br />
       <h4 className='justCreatedWannaGo'>See how well the WannaGo is doing</h4>
       <br />
-      <h4 id='times-opened'>Number of times the link was opened: {wannaGo.openedTimes}</h4>
-      <div className='flex'>
-        <div id='donut-container'><DonutChart going={wannaGo.goingCounter} maybe={wannaGo.suggestionBoxCounter} notGoing={wannaGo.rejectCounter}></DonutChart></div>
-        <div id='radial-container'><RadialChart engagement={eng} successRatio={Math.floor(getSuccessRatioOfWannaGo(wannaGo))}></RadialChart></div>
+      <div className='w-50 mx-auto'>
+        <h4 id='times-opened'>Number of times the link was opened: {wannaGo.openedTimes}</h4>
+        <div className='flex'>
+          <div id='donut-container' className='mx-10'><DonutChart going={wannaGo.goingCounter} maybe={wannaGo.suggestionBoxCounter} notGoing={wannaGo.rejectCounter}></DonutChart></div>
+          <div id='radial-container' className='mx-10'><RadialChart engagement={eng} successRatio={Math.floor(getSuccessRatioOfWannaGo(wannaGo))}></RadialChart></div>
+        </div>
       </div>
     </>
   );
