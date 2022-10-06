@@ -7,16 +7,16 @@ import '../../css/Authentication.css';
 
 export default function SignUp() {
 
-  const emailRef: any = useRef();
-  const passwordRef: any = useRef();
-  const passwordConfirmRef: any = useRef();
-  const nameRef: any = useRef();
+  const emailRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const passwordRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const passwordConfirmRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const nameRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const { signUp } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
       setError('Passwords do not match');

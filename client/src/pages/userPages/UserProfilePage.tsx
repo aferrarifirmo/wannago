@@ -4,7 +4,6 @@ import { Card, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 
 const UserProfile = () => {
-  //Hooks
   const [error, setError] = useState('');
   const { currentUser, logOut } = useAuth();
   const navigate = useNavigate();

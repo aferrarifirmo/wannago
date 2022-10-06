@@ -1,12 +1,9 @@
 import {useNavigate} from 'react-router-dom'
-
-// import logo from '../finalWannaGoLogo.png';
-const logo = require('../finalWannaGoLogo.png');
-
+import logo from '../finalWannaGoLogo.png';
 
 const MainPage = () => {
   const navigate = useNavigate();
-
+  
   const handleClick = () => {
     navigate('/wannaGo/VerticalStepperPage')
   };
@@ -18,11 +15,13 @@ const MainPage = () => {
           className='img'
           src={logo}
           alt='logo'
+          data-testid='logo'
           ></img>
         <h1 className='font-nbinternational font-light text-fourth'>Create a plan. Share it!</h1>
         <button
           onClick={handleClick}
           className='font-space-grotesk bg-third'
+          data-testid='plan-it-button'
           >
           <p className='m-3 text-second'>PLAN IT!</p>
         </button>

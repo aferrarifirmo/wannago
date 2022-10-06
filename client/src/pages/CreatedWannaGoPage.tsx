@@ -9,7 +9,6 @@ import '../css/WannaGoCard.css';
 import { putOwnerToWannaGo } from '../utils/apis/userApiServices/userApi';
 import { User } from '@firebase/auth-types';
 
-
 // SOCIAL SHARE BUTTONS
 import { EmailShareButton, 
          FacebookMessengerShareButton,
@@ -19,12 +18,10 @@ import { EmailShareButton,
         } from 'react-share';
 
 // SOCIAL SHARE ICONS
-
 import { EmailIcon, 
          FacebookMessengerIcon,
          TelegramIcon,
          WhatsappIcon
-
         } from 'react-share';
 
 const PlanCreated = () => {
@@ -55,9 +52,7 @@ const PlanCreated = () => {
     setCopied('Copied');
   };
 
-  
   const share : string = "https://google.com"
-
 
   return (
     <>
@@ -77,6 +72,8 @@ const PlanCreated = () => {
         </h6>
         <div aria-label='guest link container'>
           <div className='social-share-container mx-2 flex flex-row align-middle'>
+
+       
             <EmailShareButton
               url={`${URL}${CLIENT_PORT}/wannago/guest-link/id=${id}`}
               className="Demo__some-network__share-button mr-2"
