@@ -7,9 +7,11 @@ const YesOption = ({ id, goingCounter, ownerName }: Props) => {
   const [submitClicked, setSubmitClicked] = useState(false);
 
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // @ts-ignore
     const name = e.target.name.value;
+    // @ts-ignore
     const email = e.target.email.value;
     try {
       await putPplGoing(name, email, id);
@@ -21,7 +23,9 @@ const YesOption = ({ id, goingCounter, ownerName }: Props) => {
         `Error in YesOption.js, sending to backend to put in db the people that said yes to the wannaGo. ${e}`
       );
     }
+    // @ts-ignore
     e.target.name.value = '';
+    // @ts-ignore
     e.target.email.value = '';
   };
 

@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import {
-  putSuggestionMsg,
-  putSuggestionBoxCounter,
-} from '../../utils/apis/wannagoApiServices/putWannaGos';
+import { putSuggestionMsg, putSuggestionBoxCounter } from '../../utils/apis/wannagoApiServices/putWannaGos';
 import '../../css/MaybeOption.css';
 
 type Props = { id: any, suggestionBoxCounter: number, ownerName: string };
+
+
 
 const MaybeOption = ({ id, suggestionBoxCounter, ownerName } : Props) => {
   const [msgSent, setMsgSent] = useState(false);
 
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    console.log(e);
     e.preventDefault();
+    // @ts-ignore
     const msg = e.target.suggestion.value;
     console.log('this is msg', msg);
     if (!msg.replace(/\s/g, '').length) {
@@ -26,6 +27,7 @@ const MaybeOption = ({ id, suggestionBoxCounter, ownerName } : Props) => {
     } catch (e) {
       console.log(`Error in MaybeOption.js, trying to send the suggestion to backend to put in db. ${e}`);
     }
+    // @ts-ignore
     e.target.suggestion.value = '';
   };
 

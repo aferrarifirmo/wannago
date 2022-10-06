@@ -29,9 +29,11 @@ export default function VerticalStepper({
   let navigate = useNavigate();
   // const { currentUser } = useAuth();
 
-  const handleNext = (e: any) => {
+  const handleNext = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // @ts-ignore
     const field = e.target[0].name;
+    // @ts-ignore
     const inputValue = e.target[0].value;
     wannaGo[field] = inputValue;
 

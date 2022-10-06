@@ -30,7 +30,7 @@ const GuestLink = () => {
     }
   };
 
-  const handleOption: any = (opt: string) => {
+  const handleOption = (opt: string) => {
     switch (opt) {
       case 'no':
         return (
@@ -60,8 +60,10 @@ const GuestLink = () => {
         break;
     }
   };
+  
 
-  const handleClick: any = (e: any) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    //@ts-ignore
     switch (e.target.innerText) {
       case 'I wannaGo!':
         setOption('yes');

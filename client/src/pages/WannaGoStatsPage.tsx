@@ -92,28 +92,6 @@ const WannaGoStats = () => {
       <div className='flex'>
         <div id='donut-container'><DonutChart going={wannaGo.goingCounter} maybe={wannaGo.suggestionBoxCounter} notGoing={wannaGo.rejectCounter}></DonutChart></div>
         <div id='radial-container'><RadialChart engagement={eng} successRatio={Math.floor(getSuccessRatioOfWannaGo(wannaGo))}></RadialChart></div>
-        {/* <div className='insideGrid' aria-label='Number of times the link was opened'> */}
-        {/* </div> */}
-        {/* <div className='insideGrid' aria-label='How many people are going'>
-          <h4>People Going</h4>
-          {wannaGo.goingCounter}
-        </div>
-        <div className='insideGrid' aria-label='How many people are not going'>
-          <h4>People that can't go</h4>
-          {wannaGo.rejectCounter}
-        </div>
-        <div className='insideGrid' aria-label='Number of suggestions made'>
-          <h4>Number of suggestions made</h4>
-          {wannaGo.suggestionBoxCounter}
-        </div> */}
-        {/* <div className='insideGrid' aria-label='Engagement'>
-          <h4>Engagement</h4>
-          {eng}%
-        </div>
-        <div className='insideGrid' aria-label='Success ratio'>
-          <h4>Success Ratio</h4>
-          {Math.floor(getSuccessRatioOfWannaGo(wannaGo))}%
-        </div> */}
       </div>
     </>
   );
